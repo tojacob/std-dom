@@ -10,5 +10,8 @@
       "ES2015",
       "dom"
     ],
+    "types": [
+      "./src/global.d.ts"
+    ]
   }
 }

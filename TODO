@@ -1,4 +1,9 @@
-[] Live server
+[] Webpack
+  [] Live server
+  [] Split code
+  [] HTML loader
+  [] CSS loader
+  [x] Typescript loader
 [] Router
 [] Services
 [] Lifecycle  hooks

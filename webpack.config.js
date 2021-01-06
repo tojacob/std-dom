@@ -3,13 +3,18 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
-  entry: './src/index.ts',
-  devtool: 'inline-source-map',
+  entry: './src/main.ts',
+  output: {
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
+  },
+  resolve: {
+    extensions: ['.ts', '.js'],
+  },
   module: {
     rules: [
       {
-        test: /\.ts(x)?$/,
+        test: /\.ts?$/,
         use: {
           loader: 'ts-loader',
           options: {
@@ -18,10 +23,14 @@ module.exports = {
         },
         exclude: /node_modules/,
       },
+      {
+        test: /\.template\.html$/i,
+        loader: 'html-loader',
+        options: {
+          attributes: false,
+        }
+      },
     ],
-  },
-  resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
   },
   plugins: [
     new ForkTsCheckerWebpackPlugin(),
@@ -30,8 +39,9 @@ module.exports = {
       hash: true
     })
   ],
-  output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'dist'),
+  devtool: 'inline-source-map',
+  devServer: {
+    port: 9001,
+    contentBase: path.join(__dirname, 'app/assets')
   },
 };
