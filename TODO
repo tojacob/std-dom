@@ -1,0 +1,14 @@
+[] Live server
+[] Router
+[] Services
+[] Lifecycle  hooks
+[] State
+[] Render
+[] Render performance 
+
+[] SOLID
+  [] Patrón puerto y adaptador
+  [] Injeccion de dependencias
+[] Monorepo
+  [] Lerna
+[] Testing
